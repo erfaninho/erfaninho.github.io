@@ -1,4 +1,4 @@
-# Personal Website (GitHub Pages)
+# Personal Website (Deployed on GitHub Pages)
 
 A small, interactive personal website (overview, projects, studies, skills + a contact page) built with **Vite + React + TypeScript** and deployed to **GitHub Pages** via GitHub Actions.
 
@@ -18,8 +18,8 @@ A small, interactive personal website (overview, projects, studies, skills + a c
 3. Run the dev server:
    - `npm run dev`
 4. Open:
-   - Home: `http://localhost:5173/#/`
-   - Contact: `http://localhost:5173/#/contact`
+   - Home: `http://localhost:3000/#/`
+   - Contact: `http://localhost:3000/#/contact`
 
 ## Configure your content
 
@@ -31,6 +31,7 @@ A small, interactive personal website (overview, projects, studies, skills + a c
   - `VITE_GITHUB_PROFILE_URL`
   - `VITE_LINKEDIN_URL`
   - `VITE_CONTACT_EMAIL`
+  - `VITE_PROFILE_IMAGE_URL`
 
 ## .env and “private” variables
 
