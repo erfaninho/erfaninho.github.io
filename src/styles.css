@@ -691,3 +691,124 @@ a {
   flex-wrap: wrap;
   margin-bottom: 8px;
 }
+
+@media (max-width: 640px) {
+  .container {
+    width: calc(100% - 28px);
+  }
+
+  .page {
+    padding: 18px 0 52px;
+  }
+
+  .headerInner {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .brand {
+    flex: 1 1 auto;
+  }
+
+  .headerActions {
+    flex: 0 0 auto;
+  }
+
+  .nav {
+    order: 3;
+    width: 100%;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 4px;
+    scrollbar-width: none;
+  }
+
+  .nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .navLink {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+
+  .hero {
+    padding: 18px 18px 16px;
+  }
+
+  .heroTop {
+    gap: 12px;
+  }
+
+  .avatar {
+    width: 64px;
+    height: 64px;
+  }
+
+  .heroSub {
+    font-size: 16px;
+  }
+
+  .homeCardHeadingWrap {
+    width: 100%;
+    margin: 10px 0 8px;
+  }
+
+  .homeCardBodyWrap {
+    width: 100%;
+  }
+
+  .sectionHeading {
+    padding: 12px 12px 4px;
+  }
+
+  .sectionIcon {
+    width: 46px;
+    height: 46px;
+    margin: 0 auto 8px;
+  }
+
+  .projectRow {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .projectThumb {
+    width: 56px;
+    height: 56px;
+  }
+
+  .projectCardLinks {
+    justify-content: flex-start;
+  }
+
+  .tagRow {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 6px;
+    scrollbar-width: none;
+  }
+
+  .tagRow::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tag {
+    white-space: nowrap;
+  }
+
+  .timeline::before {
+    left: 10px;
+  }
+
+  .timelineItem {
+    padding-left: 34px;
+  }
+
+  .timelineItem::before {
+    left: 4px;
+  }
+}
