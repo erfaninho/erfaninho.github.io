@@ -30,9 +30,9 @@ export type WorkExperience = {
 export const content = {
   hero: {
     headline: "Erfan Echresh",
-    subheadline: "I build things for the web and love learning new tech.",
+    subheadline: "I Love Coding, Playing, Sharing!",
     overview:
-      "This site is a small, open-source overview of what I do: projects I’ve shipped, what I’m studying, and the tools I use.",
+      "This site is a small, open-source overview of what I do: projects I’ve shipped, what I’m studying, and the tools I use. Also you can reach me if you had any thoughts in yor mind using my email. Take a look at my Github also.",
   },
   about: {
     title: "Overview",
@@ -44,49 +44,47 @@ export const content = {
   },
   studies: [
     {
-      title: "Degree / Program",
-      place: "University / School",
-      period: "202X – 202Y",
-      details: "A short line about your focus area.",
+      title: "Masters - Cognitive Neuroimaging and Data Science",
+      place: "University of Birmingham - Birmingham - UK",
+      period: "2024 – 2025",
+      details: "Focused on Human Haptic Recognition of Softness in Virtual Reality environment.",
+    },
+    {
+      title: "Bachelors - Electrical Engineering",
+      place: "K.N. Toosi University of Technology - Tehran - Iran",
+      period: "2019 – 2024",
+      details: "Focused on transferring sensitive data through blockchain to maintain the Data Privacy.",
     },
   ] satisfies Study[],
   skills: [
-    { name: "Languages", items: ["TypeScript", "JavaScript", "Python"] },
-    { name: "Frameworks", items: ["React", "Node.js", "Express"] },
+    { name: "Languages", items: ["TypeScript", "JavaScript", "Python", "C#"] },
+    { name: "Frameworks", items: ["React", "Django", "Pandas", "Numpy", "FastAPI", "RestfulAPI"] },
     { name: "Tools", items: ["Git", "Docker", "Linux"] },
   ] satisfies SkillGroup[],
   workExperience: [
     {
-      title: "Role Title",
-      company: "Company",
-      period: "202X – 202Y",
-      summary: "One concise line about what you did or delivered.",
-    },
-    {
-      title: "Another Role",
-      company: "Company",
-      period: "202X – Present",
-      summary: "Another concise line about impact or responsibilities.",
+      title: "Fullstack Web Developer",
+      company: "Motion Dynamics AI",
+      period: "2025 – Ongoing",
+      summary: "Full Stack web developer at Motion Dynamics AI working on delivering high quality, maintainable web services for company service clients.",
     },
   ] satisfies WorkExperience[],
   projects: [
     {
-      name: "Project Name",
+      name: "Golf Web Reports",
       summary:
-        "One sentence describing what it is, what problem it solves, or what you learned.",
-      thumbUrl: "placeholders/project.svg",
-      tags: ["Web", "React", "Django", ],
+        "Front-End using React combined with the C# .Net Back-End components to demonstrate data received and processed using AI from professional or semi-professional Golf Players to help them improve.",
+      thumbUrl: "project_samples/web_report_sample.png",
+      tags: ["Web", "React", "C#", "Front-End", ],
       links: [
-        { label: "Repo", href: "https://github.com/yourname/project" },
-        { label: "Demo", href: "https://example.com" },
       ],
     },
     {
-      name: "Another Project",
-      summary: "A short description with a clear outcome.",
-      thumbUrl: "placeholders/project.svg",
-      tags: ["Tooling"],
-      links: [{ label: "Repo", href: "https://github.com/yourname/another" }],
+      name: "Personal Website",
+      summary: "The Web-Page that you are currently looking at xD. Please take a look over github Repo also.",
+      thumbUrl: "project_samples/personal_website.png",
+      tags: ["Web", "React", "Front-End", ],
+      links: [{ label: "Repo", href: "https://github.com/erfaninho/erfaninho.github.io" }],
     },
   ] satisfies Project[],
 };
