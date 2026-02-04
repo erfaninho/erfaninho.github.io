@@ -620,10 +620,57 @@ a {
   transition: border-color 160ms ease, background 160ms ease;
 }
 
+.select {
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--panel), transparent 10%);
+  color: var(--text);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  outline: none;
+  transition: border-color 160ms ease, background 160ms ease;
+}
+
 .input:focus,
-.textarea:focus {
+.textarea:focus,
+.select:focus {
   border-color: color-mix(in srgb, var(--brand), white 20%);
   background: var(--panel);
+}
+
+.apiHint {
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.apiHint code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+.apiResultTop {
+  align-items: center;
+}
+
+.codeBlock {
+  margin: 10px 0 0;
+  padding: 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--bg), transparent 20%);
+  overflow: auto;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.codeBlock code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  white-space: pre;
+}
+
+.apiRaw summary {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .footer {

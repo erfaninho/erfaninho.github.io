@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { Briefcase, GraduationCap, Mail, Rocket, User, Wrench } from "lucide-react";
+import { Briefcase, GraduationCap, Mail, Rocket, Sparkles, User, Wrench } from "lucide-react";
 import { config } from "../config";
 import { publicUrl } from "../lib/publicUrl";
 import ThemeToggle from "./ThemeToggle";
@@ -60,6 +60,10 @@ export default function Header() {
               {s.label}
             </Link>
           ))}
+          {/* <NavLink className="navLink" to="/api">
+            <Sparkles className="navLinkIcon" size={16} aria-hidden="true" />
+            API
+          </NavLink> */}
           <NavLink className="navLink" to="/contact">
             <Mail className="navLinkIcon" size={16} aria-hidden="true" />
             Contact
