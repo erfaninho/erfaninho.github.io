@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { config } from "../../config";
 import { content } from "../../content";
+import { scrollToSectionSoon } from "../../hooks/useScrollToSection";
 import { ArrowRight, BrainCircuit, Database, LockKeyhole, Mail, Network } from "lucide-react";
 
 export default function HeroCard() {
@@ -16,10 +17,10 @@ export default function HeroCard() {
           <p className="heroLead">{content.hero.overview}</p>
 
           <div className="heroActions">
-            <a className="button" href="#/?s=projects">
+            <a className="button" href="#/?s=projects" onClick={() => scrollToSectionSoon("projects")}>
               View projects <ArrowRight size={18} />
             </a>
-            <Link className="button buttonGhost" to="/contact">
+            <Link className="button contactCta" to="/contact">
               Contact me <Mail size={18} />
             </Link>
           </div>
@@ -43,7 +44,10 @@ export default function HeroCard() {
         </div>
 
         <aside className="heroPanel" aria-label="Profile summary">
-          <img className="avatar" src={config.profileImageUrl} alt={config.title} />
+          <figure className="portraitFrame">
+            <img className="avatar" src={config.profileImageUrl} alt={config.title} />
+            <figcaption>Python / Django Developer</figcaption>
+          </figure>
           <div>
             <p className="heroPanelLabel">Currently</p>
             <p className="heroPanelText">Front-end developer at Motion Dynamics</p>

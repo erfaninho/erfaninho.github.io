@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Briefcase, GraduationCap, Mail, Rocket, Sparkles, User, Wrench } from "lucide-react";
 import { config } from "../config";
+import { scrollToSectionSoon } from "../hooks/useScrollToSection";
 import { publicUrl } from "../lib/publicUrl";
 import ThemeToggle from "./ThemeToggle";
 
@@ -55,7 +56,12 @@ export default function Header() {
 
         <nav className="nav" aria-label="Primary">
           {sections.map((s) => (
-            <Link key={s.id} className="navLink" to={`/?s=${encodeURIComponent(s.id)}`}>
+            <Link
+              key={s.id}
+              className="navLink"
+              to={`/?s=${encodeURIComponent(s.id)}`}
+              onClick={() => scrollToSectionSoon(s.id)}
+            >
               <s.Icon className="navLinkIcon" size={16} aria-hidden="true" />
               {s.label}
             </Link>
@@ -99,10 +105,10 @@ export default function Header() {
           </div>
           {config.githubRepoUrl ? (
             <a
-            className="button buttonGhost"
-            href={config.githubRepoUrl}
-            target="_blank"
-            rel="noreferrer"
+              className="button buttonGhost"
+              href={config.githubRepoUrl}
+              target="_blank"
+              rel="noreferrer"
             >
               View on GitHub
             </a>
