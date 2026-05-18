@@ -20,7 +20,7 @@ export default function ProjectsCard() {
   }, [activeTag]);
 
   return (
-    <HomeCard id="projects" title="Projects" subtitle="Selected things I’ve worked on" icon={<Rocket size={24} />}>
+    <HomeCard id="projects" title="Selected Work" subtitle="Projects with technical context" icon={<Rocket size={24} />}>
       <TagFilter tags={allTags} active={activeTag} onChange={setActiveTag} />
       <div className="projectsList">
         {visibleProjects.map((p) => (

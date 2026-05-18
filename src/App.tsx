@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import GenerativeExperienceBackground from "./components/GenerativeExperienceBackground";
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import Api from "./pages/Api";
@@ -20,6 +21,9 @@ function NotFound() {
 export default function App() {
   return (
     <div className="app">
+      <div className="siteBackground" aria-hidden="true">
+        <GenerativeExperienceBackground />
+      </div>
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />

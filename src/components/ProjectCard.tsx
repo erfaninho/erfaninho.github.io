@@ -1,6 +1,7 @@
 import type { Project } from "../content";
 import { publicUrl } from "../lib/publicUrl";
 import Reveal from "./Reveal";
+import { ExternalLink } from "lucide-react";
 
 type Props = { project: Project };
 
@@ -30,10 +31,27 @@ export default function ProjectCard({ project }: Props) {
 
           <p className="muted">{project.summary}</p>
 
+          <div className="projectEvidence">
+            <div>
+              <span>Role</span>
+              <strong>{project.role}</strong>
+            </div>
+            <div>
+              <span>Outcome</span>
+              <strong>{project.outcome}</strong>
+            </div>
+          </div>
+
+          <ul className="projectHighlights">
+            {project.highlights.map((highlight) => (
+              <li key={highlight}>{highlight}</li>
+            ))}
+          </ul>
+
           <div className="cardLinks projectCardLinks">
             {project.links.map((l) => (
               <a key={l.href} className="link" href={l.href} target="_blank" rel="noreferrer">
-                {l.label}
+                {l.label} <ExternalLink size={14} />
               </a>
             ))}
           </div>

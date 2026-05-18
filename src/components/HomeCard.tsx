@@ -1,4 +1,4 @@
-import type { PropsWithChildren, ReactNode } from "react";
+import type { CSSProperties, PropsWithChildren, ReactNode } from "react";
 import Reveal from "./Reveal";
 
 type Props = PropsWithChildren<{
@@ -7,13 +7,14 @@ type Props = PropsWithChildren<{
   subtitle?: string;
   icon?: ReactNode;
   className?: string;
+  style?: CSSProperties;
 }>;
 
-export default function HomeCard({ id, title, subtitle, icon, className, children }: Props) {
+export default function HomeCard({ id, title, subtitle, icon, className, style, children }: Props) {
   const classes = ["homeCard", className ?? ""].filter(Boolean).join(" ");
 
   return (
-    <Reveal as="section" id={id} className={classes}>
+    <Reveal as="section" id={id} className={classes} style={style}>
       <div className="homeCardHeadingWrap">
         <header className="sectionHeading homeCardHeading">
           {icon ? <div className="sectionIcon">{icon}</div> : null}
