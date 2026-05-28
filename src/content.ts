@@ -120,7 +120,7 @@ export const content = {
       name: "E-Commerce Platform",
       summary:
         "A scalable Django e-commerce system with product management, customer accounts, order tracking, PostgreSQL persistence, and secure payment integration.",
-      thumbUrl: "work-history/ecommerce-platform.png",
+      thumbUrl: "project_samples/ecommerce-concept.png",
       tags: ["Django", "PostgreSQL", "Bootstrap", "Payments"],
       role: "Freelance full-stack developer",
       outcome: "Streamlined sales operations and contributed to a 20% increase in sales.",
@@ -135,7 +135,7 @@ export const content = {
       name: "Reservation System",
       summary:
         "A web-based booking platform for Butterfly Nail Club using Django, REST APIs, Bootstrap, worker scheduling, and automated release jobs.",
-      thumbUrl: "work-history/butterfly-booking-system.png",
+      thumbUrl: "project_samples/reservation-concept.png",
       tags: ["Django", "REST APIs", "Bootstrap", "Automation"],
       role: "Freelance full-stack developer",
       outcome: "Reduced scheduling time by 50% and lowered booking errors.",
@@ -150,7 +150,7 @@ export const content = {
       name: "Golf Web Reports",
       summary:
         "An analytical reporting interface that visualizes processed sports-performance JSON through React charts, tooltips, and AI-assisted insights.",
-      thumbUrl: "project_samples/web_report_sample.png",
+      thumbUrl: "project_samples/golf-analytics-concept.png",
       tags: ["React", "Charts", "JSON Data", "AI Insights"],
       role: "Front-end developer",
       outcome: "Made complex performance data easier to interpret and discuss.",
@@ -164,7 +164,7 @@ export const content = {
     {
       name: "Medical Data DApp",
       summary: "A blockchain thesis project for secure medical IoT data transfer using Ethereum and decentralized application patterns.",
-      thumbUrl: "work-history/medical-data-dapp.png",
+      thumbUrl: "project_samples/medical-dapp-concept.png",
       tags: ["Blockchain", "Ethereum", "DApp", "Data Privacy"],
       role: "Research, protocol design, and implementation",
       outcome: "Explored privacy, integrity, and scalability for healthcare communication.",
