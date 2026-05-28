@@ -576,9 +576,12 @@ a {
 }
 
 .heroMetric {
+  position: relative;
+  overflow: visible;
   border-left: 3px solid var(--metric-accent, var(--brand));
   background: color-mix(in srgb, var(--panel-strong), transparent 18%);
   padding: 12px 12px 10px;
+  cursor: none;
 }
 
 .heroMetric:nth-child(2) {
@@ -608,6 +611,78 @@ a {
   font-family: "IBM Plex Mono", monospace;
   font-size: 11px;
   line-height: 1.35;
+}
+
+.metricLens {
+  position: absolute;
+  z-index: 3;
+  isolation: isolate;
+  width: 96px;
+  height: 96px;
+  border: 2px solid color-mix(in srgb, var(--metric-accent), white 28%);
+  border-radius: 999px;
+  overflow: visible;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  background:
+    radial-gradient(circle at 34% 28%, rgba(255, 255, 255, 0.22), transparent 24%),
+    color-mix(in srgb, var(--paper), transparent 8%);
+  box-shadow:
+    0 14px 34px rgba(0, 0, 0, 0.34),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.22);
+}
+
+.metricLens::before {
+  content: "";
+  position: absolute;
+  right: -28px;
+  bottom: -22px;
+  z-index: 0;
+  width: 48px;
+  height: 12px;
+  border-radius: 999px;
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--metric-accent), black 28%), color-mix(in srgb, var(--metric-accent), white 14%));
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.26);
+  transform: rotate(42deg);
+  transform-origin: 0 50%;
+}
+
+.metricLens::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  inset: 9px 12px auto auto;
+  width: 28px;
+  height: 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.24);
+  transform: rotate(-28deg);
+}
+
+.metricLensViewport {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  overflow: hidden;
+}
+
+.metricLensContent {
+  position: absolute;
+  inset: 0;
+  transform-origin: 0 0;
+  border-left: 3px solid var(--metric-accent, var(--brand));
+  background: color-mix(in srgb, var(--panel-strong), transparent 4%);
+  padding: 12px 12px 10px;
+}
+
+.metricLensContent strong {
+  font-size: clamp(24px, 3vw, 38px);
+}
+
+.metricLensContent span {
+  color: var(--text);
 }
 
 .heroPanel {

@@ -3,8 +3,99 @@ import { config } from "../../config";
 import { content } from "../../content";
 import { scrollToSectionSoon } from "../../hooks/useScrollToSection";
 import { ArrowRight, BrainCircuit, Database, LockKeyhole, Mail, Network } from "lucide-react";
+import {
+  type MouseEvent as ReactMouseEvent,
+  type PointerEvent as ReactPointerEvent,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
+
+type MetricLens = {
+  index: number;
+  x: number;
+  y: number;
+  lensX: number;
+  lensY: number;
+  width: number;
+  height: number;
+};
+
+const metricLensRadius = 48;
+const metricLensScale = 1.9;
+
+function clampLensPosition(x: number, y: number, width: number, height: number) {
+  return {
+    lensX: Math.min(Math.max(x, metricLensRadius), Math.max(metricLensRadius, width - metricLensRadius)),
+    lensY: Math.min(Math.max(y, metricLensRadius), Math.max(metricLensRadius, height - metricLensRadius)),
+  };
+}
 
 export default function HeroCard() {
+  const metricRefs = useRef<Array<HTMLDivElement | null>>([]);
+  const [metricLens, setMetricLens] = useState<MetricLens | null>(null);
+
+  useEffect(() => {
+    const updateLensFromWindow = (event: MouseEvent | PointerEvent) => {
+      const metricIndex = metricRefs.current.findIndex((node) => {
+        if (!node) return false;
+        const rect = node.getBoundingClientRect();
+        return (
+          event.clientX >= rect.left &&
+          event.clientX <= rect.right &&
+          event.clientY >= rect.top &&
+          event.clientY <= rect.bottom
+        );
+      });
+
+      const node = metricRefs.current[metricIndex];
+      if (!node) {
+        setMetricLens(null);
+        return;
+      }
+
+      const rect = node.getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
+      const { lensX, lensY } = clampLensPosition(x, y, rect.width, rect.height);
+      setMetricLens({
+        index: metricIndex,
+        x,
+        y,
+        lensX,
+        lensY,
+        width: rect.width,
+        height: rect.height,
+      });
+    };
+
+    window.addEventListener("mousemove", updateLensFromWindow, { passive: true });
+    window.addEventListener("pointermove", updateLensFromWindow, { passive: true });
+    return () => {
+      window.removeEventListener("mousemove", updateLensFromWindow);
+      window.removeEventListener("pointermove", updateLensFromWindow);
+    };
+  }, []);
+
+  const updateMetricLens = (
+    event: ReactMouseEvent<HTMLDivElement> | ReactPointerEvent<HTMLDivElement>,
+    index: number,
+  ) => {
+    const rect = event.currentTarget.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+    const { lensX, lensY } = clampLensPosition(x, y, rect.width, rect.height);
+    setMetricLens({
+      index,
+      x,
+      y,
+      lensX,
+      lensY,
+      width: rect.width,
+      height: rect.height,
+    });
+  };
+
   return (
     <section className="hero" aria-label="Intro">
       <div className="heroGlow" aria-hidden="true" />
@@ -34,10 +125,48 @@ export default function HeroCard() {
           </div>
 
           <div className="heroMetrics" aria-label="Resume metrics">
-            {content.hero.metrics.map((metric) => (
-              <div key={metric.label} className="heroMetric">
+            {content.hero.metrics.map((metric, index) => (
+              <div
+                key={metric.label}
+                ref={(node) => {
+                  metricRefs.current[index] = node;
+                }}
+                className="heroMetric"
+                onMouseMove={(event) => updateMetricLens(event, index)}
+                onPointerMove={(event) => updateMetricLens(event, index)}
+                onPointerLeave={() => {
+                  setMetricLens(null);
+                }}
+                onMouseLeave={() => {
+                  setMetricLens(null);
+                }}
+              >
                 <strong>{metric.value}</strong>
                 <span>{metric.label}</span>
+                {metricLens?.index === index ? (
+                  <div
+                    className="metricLens"
+                    aria-hidden="true"
+                    style={{
+                      left: `${metricLens.lensX}px`,
+                      top: `${metricLens.lensY}px`,
+                    }}
+                  >
+                    <div className="metricLensViewport">
+                      <div
+                        className="metricLensContent"
+                        style={{
+                          width: `${metricLens.width}px`,
+                          height: `${metricLens.height}px`,
+                          transform: `translate(${metricLensRadius - metricLens.x * metricLensScale}px, ${metricLensRadius - metricLens.y * metricLensScale}px) scale(${metricLensScale})`,
+                        }}
+                      >
+                        <strong>{metric.value}</strong>
+                        <span>{metric.label}</span>
+                      </div>
+                    </div>
+                  </div>
+                ) : null}
               </div>
             ))}
           </div>
